@@ -1,7 +1,34 @@
+import * as jwt from 'jsonwebtoken';
+import { env } from '../config'; //<this should be up a higher directory
 import { Router } from 'express';
 import { RegDoc } from '../models/regdoc';
 
 export const regdocs = Router();
+
+regdocs.use((req, res, next) => {
+
+  //TODO:  Change this to use Authorization: Bearer   or express-jwt()
+
+  var token: string = String(req.headers['access-token']);
+
+  if (token)
+  {
+    jwt.verify(token, env.secret, (err, decoded) => {
+      if (err) {
+        return res.json({message: 'invalid token'});
+      } else {
+        (<Object>req)['decoded'] = decoded;
+        next();
+      }
+    });
+  }
+  else
+  {
+    res.send({message: 'Authentication required.'});
+  }
+
+});
+
 
 regdocs.get('/', (req, res, next) => {
   RegDoc
@@ -60,3 +87,5 @@ regdocs.delete('/:id', async (req, res, next) => {
     next(e);
   }
 });
+
+
