@@ -1,0 +1,35 @@
+
+<div [hidden]="submitted">
+  
+  <form class="ui form" #docForm="ngForm">
+    <h3 class="ui dividing header"><i class="ui file outline icon"></i> Edit Document: #{{regdoc.id}}</h3>
+    <div class="fields">
+      <div class="eight wide field">
+        <label>Title</label>
+        <input [(ngModel)]="regdoc.title" type="text" name="doctitle" placeholder="Document Title" #title="ngModel">
+      </div>
+      <div class="eight wide field">
+        <label>URI</label>
+        <input [(ngModel)]="regdoc.uri" type="text" name="docuri" placeholder="/friendly-url-path" #uri="ngModel">
+      </div>
+    </div>
+    <div class="field">
+      <label>Title</label>
+      <textarea [(ngModel)]="regdoc.body" name="regbody" placeholder="Document Body, <p>html works.</p>" #body="ngModel"></textarea>
+    </div>
+    <div class="field">
+      <div class="ui checkbox">
+      <input [(ngModel)]="regdoc.hidden" type="checkbox" name="reghidden" #hidden="ngModel"/>
+      <label>Hidden</label>
+      </div>
+    </div>
+    <button class="ui button" type="submit" (click)="saveDoc();">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Updated Successfully! -> <span class="ui badge badge-light">{{regdoc.title}}</span></p>
+	<div class="ui btn-group-sm">
+    	<button type="button" class="ui button" (click)="goBack();">Continue</button>
+    </div>
+</div>

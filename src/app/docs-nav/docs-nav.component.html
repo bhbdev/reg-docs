@@ -1,0 +1,23 @@
+
+  <div class="ui fluid inverted vertical menu toc">
+    <div class="item">
+      <a href="/" class="logo"><i class="ui icon coffee" style="margin-right:.5rem"></i> RegDocs</a>
+    </div>
+    <a routerLink="/docs/add" routerLinkActive="active" class="item"><i class="plus icon"></i> New Doc</a>
+    <div class="item">
+      <div class="header">
+        <a href="/docs">Index</a>
+      </div>
+      <div class="menu">
+        <div *ngIf="regdocs && regdocs.length">
+        <span *ngFor="let doc of regdocs">
+        <a class="item" href="/docs/#{{doc.uri}}">{{$index}} {{doc.title}}</a>
+        </span>
+        </div>
+        <div *ngIf="regdocs && !regdocs.length">
+        <div class="item">No documents found.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
