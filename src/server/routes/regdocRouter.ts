@@ -7,9 +7,17 @@ export const regdocs = Router();
 
 regdocs.use((req, res, next) => {
 
+  if (req.path==='/' && !req.params.length) {
+    next();
+    return;
+  }
   //TODO:  Change this to use Authorization: Bearer   or express-jwt()
-
-  var token: string = String(req.headers['access-token']);
+  var token = null;
+  var authpacket = (<string>req.headers.authorization).split(' ');
+  if (authpacket.length == 2) {
+    token = authpacket[1];
+  }
+  //var token: string = String(req.headers['access-token']);
 
   if (token)
   {

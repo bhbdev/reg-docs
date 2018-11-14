@@ -28,6 +28,10 @@ export class NewDocComponent {
     this.submitted = true;
     this.save();
   }
+  
+  goBack() {
+    this.location.back();
+  }
  
   private save(): void {
     console.log(this.regdoc);

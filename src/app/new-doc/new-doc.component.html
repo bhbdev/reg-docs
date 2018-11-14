@@ -23,12 +23,13 @@
       </div>
     </div>
     <button class="ui button" type="submit" (click)="addDoc();">Submit</button>
+    <button class="ui button" type="button" (click)="goBack()">Cancel</button>
   </form>
 </div>
 
 <div [hidden]="!submitted">
   <p>Submitted Successfully! -> <span class="ui badge badge-light">{{regdoc.title}}</span></p>
 	<div class="ui btn-group-sm">
-    	<button type="button" class="ui button" (click)="newDoc(); docForm.reset()">Continue</button>
-    </div>
+    <button type="button" class="ui button" (click)="newDoc(); docForm.reset()">Continue</button>
+  </div>
 </div>

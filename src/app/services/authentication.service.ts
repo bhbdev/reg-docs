@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map,first } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -10,12 +11,9 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {}
   
   login(username: string, password: string) {
-    
     // const httpOptions = {
     //     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
     // };
-    
-    //application/x-www-form-urlencoded
     
     return this.http.post<any>(`${this.apiUrl}/authenticate`, { username:username, password: password })
       .pipe(map(user => {
@@ -33,4 +31,10 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
   }
   
+  
+  public get loggedIn(): boolean {
+    return (localStorage.getItem('currentUser') !== null);
+  }
+  
 }
+

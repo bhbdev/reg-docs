@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { RegDoc } from '../doc';
 import { ApiService } from '../api.service';
+import { AuthenticationService } from '../services';
 import { Observable } from "rxjs"
 import { map } from 'rxjs/operators';
 
@@ -15,7 +16,7 @@ export class DocsNavComponent implements OnInit {
   
   public regdocs: Observable<RegDoc[]>;
   
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     this.getDocs();
@@ -28,6 +29,11 @@ export class DocsNavComponent implements OnInit {
       () => console.log("completed")
     );
     this.apiService.getAllDocs();
+  }
+  
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['login']);
   }
 
 }

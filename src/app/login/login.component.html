@@ -1,0 +1,21 @@
+<div class="ui raised segment">
+
+<form (ngSubmit)="submit()" ngNativeValidate class="ui form">
+  <h3 class="ui dividing header"><i class="ui user icon"></i> Login</h3>
+  <div *ngIf="error" class="ui compact icon negative message">
+    <i class="frown outline icon"></i>
+    <div class="content">
+      {{error}}
+    </div>
+  </div>
+  <div class="field">
+    <label>Username</label>
+    <input type="text" [(ngModel)]="username" name="username" placeholder="Username" required />
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password"  required />
+  </div>
+  <button class="ui button" type="submit">Login</button>
+</form>
+</div>

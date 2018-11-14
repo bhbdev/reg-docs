@@ -74,7 +74,7 @@ server.post('/api/authenticate', (req, res) => {
   }
   else
   {
-    res.json({message: 'user not found'});
+    res.json({message: 'Invalid username or password.'});
   }
 });
 

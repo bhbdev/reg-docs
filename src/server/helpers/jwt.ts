@@ -7,6 +7,7 @@ export function jwt() {
   return expressJwt( { secret }).unless({
     path: [
       '/api/test',
+      '/api/regdocs',
       '/api/authenticate'
     ]
   });
