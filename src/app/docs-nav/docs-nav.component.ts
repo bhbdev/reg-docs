@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegDoc } from '../doc';
-import { ApiService } from '../api.service';
-import { AuthenticationService } from '../services';
+import { ApiService, AuthenticationService } from '../services';
 import { Observable } from "rxjs"
 import { map } from 'rxjs/operators';
 
@@ -29,6 +28,16 @@ export class DocsNavComponent implements OnInit {
       () => console.log("completed")
     );
     this.apiService.getAllDocs();
+  }
+  
+  jumpTo(anchor:string) {
+    console.debug('jumpTo: ' + anchor);
+    const elem = document.getElementById('doc-'+anchor);
+    console.debug(elem)
+    if (elem) {
+      elem.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  
   }
   
   logout() {

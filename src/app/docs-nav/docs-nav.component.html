@@ -11,7 +11,7 @@
       <div class="menu">
         <div *ngIf="regdocs && regdocs.length">
         <span *ngFor="let doc of regdocs">
-        <a class="item" routerLink="/docs" fragment="{{doc.uri}}">{{$index}} {{doc.title}}</a>
+        <a class="item" routerLink="/docs" (click)="jumpTo(doc.uri)">{{$index}} {{doc.title}}</a>
         </span>
         </div>
         <div *ngIf="regdocs && !regdocs.length">

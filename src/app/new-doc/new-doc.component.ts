@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegDoc } from '../doc';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services';
 
 import { Location } from '@angular/common';
 

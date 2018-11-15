@@ -2,7 +2,7 @@
   <input type="checkbox" (change)="showHidden();" ng-model="showhidden" checked> show hidden
   
 <span *ngFor="let doc of regdocs;let idx=index;">
-<a name="{{doc.uri}}"></a>
+<div id="doc-{{doc.uri}}"></div>
 <div class="ui segment" *ngIf="showhidden || !doc.hidden">
 
   <h1>{{doc.title}}</h1>
@@ -13,7 +13,7 @@
   <div class="column six wide">
     <div class="ui label">id: {{idx}} | uri: {{doc.uri}}</div>
   </div>
-  <div class="right aligned column ten wide ">
+  <div class="right aligned column ten wide " *ngIf="auth.loggedIn">
     <div class="ui icon mini buttons">
       <a class="ui teal button" [routerLink]="['/docs/edit',doc.id]"><i class="ui icon edit"></i> edit</a>
       <a class="ui grey button" (click)="trashDoc(idx);"><i class="ui icon trash"></i> delete</a>

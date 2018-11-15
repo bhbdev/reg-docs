@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { RegDoc } from '../doc';
-import { ApiService } from '../api.service';
+import { ApiService, AuthenticationService } from '../services';
 import { Observable } from "rxjs"
 import { map } from 'rxjs/operators';
 
@@ -15,7 +15,7 @@ export class DocIndexComponent implements OnInit {
   private doc: RegDoc;
   showhidden = 1;
   
-  constructor(private apiService: ApiService, private route: ActivatedRoute) { 
+  constructor(private auth: AuthenticationService, private apiService: ApiService, private route: ActivatedRoute) { 
     
     // router.events.subscribe(event => {
     //   if (event instanceof NavigationEnd) {
@@ -39,6 +39,9 @@ export class DocIndexComponent implements OnInit {
     this.route.fragment.subscribe(data=>{
       console.log('frag: ' + data)
     });
+    
+
+    
   }
   
   editDoc(idx: number): void {
