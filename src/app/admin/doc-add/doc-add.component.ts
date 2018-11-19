@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { RegDoc } from '../doc';
-import { ApiService } from '../services';
+import { RegDoc } from '../../doc';
+import { ApiService } from '../../services';
 
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-new-doc',
-  templateUrl: './new-doc.component.html',
+  selector: 'app-doc-add',
+  templateUrl: './doc-add.component.html',
   styles: []
 })
-export class NewDocComponent {
+export class DocAddComponent {
   
   regdoc = new RegDoc();
   submitted = false;

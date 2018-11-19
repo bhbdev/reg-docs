@@ -1,7 +1,7 @@
 
 <div id="app" class="ui grid" id="grid">
-    <div class="column toc-wrapper">
-      <app-docs-nav></app-docs-nav>
+    <div class="column toc-wrapper" style="position:relative;overflow:hidden">
+      <app-doc-nav style="position:fixed;width:100%;max-width:180px"></app-doc-nav>
     </div>
     <div class=" column main-view">
       <router-outlet></router-outlet>

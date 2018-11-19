@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegDoc } from '../doc';
-import { ApiService, AuthenticationService } from '../services';
+import { RegDoc } from '../../doc';
+import { ApiService, AuthenticationService } from '../../services';
 import { Observable } from "rxjs"
 import { map } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-docs-nav',
-  templateUrl: './docs-nav.component.html',
+  selector: 'app-doc-nav',
+  templateUrl: './doc-nav.component.html',
   styles: []
 })
-export class DocsNavComponent implements OnInit {
+export class DocNavComponent implements OnInit {
   
   public regdocs: Observable<RegDoc[]>;
   

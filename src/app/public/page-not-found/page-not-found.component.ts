@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-page-not-found',
   template: `
-    <p>
-      Page Not Found
-    </p>
+    <div class="ui container message">
+      404: Page Not Found
+    </div>
   `,
   styles: []
 })

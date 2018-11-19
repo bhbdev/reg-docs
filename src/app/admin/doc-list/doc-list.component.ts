@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { RegDoc } from '../doc';
-import { ApiService, AuthenticationService } from '../services';
+import { RegDoc } from '../../doc';
+import { ApiService, AuthenticationService } from '../../services';
 import { Observable } from "rxjs"
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-doc-index',
-  templateUrl: './doc-index.component.html',
+  selector: 'app-doc-list',
+  templateUrl: './doc-list.component.html',
   styles: []
 })
-export class DocIndexComponent implements OnInit {
+export class DocListComponent implements OnInit {
   public regdocs: RegDoc[];
   private doc: RegDoc;
   showhidden = 1;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services';
+import { AuthenticationService } from '../../services';
 import { Location } from '@angular/common';
 import { first } from 'rxjs/operators';
 
@@ -14,15 +14,16 @@ export class LoginComponent {
   public password: string;
   public error: string;
 
-  constructor(private authenticationService: AuthenticationService, private router: Router, private location: Location) { }
+  constructor(private auth: AuthenticationService, private router: Router, private location: Location) { }
 
   public submit() {
-    this.authenticationService.login(this.username, this.password)
+    this.auth.login(this.username, this.password)
       .pipe(first())
       .subscribe(
         result => {
           if (result.token) {
-            this.goBack();//this.router.navigate(['docs']),
+            //this.goBack();
+            this.router.navigate(['admin/docs']);
           }
           else {
             this.error = result.message;

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { RegDoc } from '../doc';
-import { ApiService } from '../services';
+import { RegDoc } from '../../doc';
+import { ApiService } from '../../services';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-doc-form',
-  templateUrl: './doc-form.component.html',
+  selector: 'app-doc-edit',
+  templateUrl: './doc-edit.component.html',
   styles: []
 })
-export class DocFormComponent implements OnInit {
+export class DocEditComponent implements OnInit {
 
   regdoc = new RegDoc();
   submitted = false;
