@@ -15,11 +15,12 @@ export class DocNavComponent implements OnInit {
   
   public regdocs: Observable<RegDoc[]>;
   
-  constructor(private apiService: ApiService, private auth: AuthenticationService, private router: Router) { }
+  constructor(private apiService: ApiService, public auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     this.getDocs();
   }
+  
   
   getDocs(): void {
     this.apiService.regdocs.subscribe(
@@ -38,6 +39,10 @@ export class DocNavComponent implements OnInit {
       elem.scrollIntoView({behavior:'smooth', block:'start'});
     }
   
+  }
+  
+  loggedIn() {
+    return this.auth.loggedIn;
   }
   
   logout() {

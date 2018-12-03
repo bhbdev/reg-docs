@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class ApiService {
 
-  private baseURL = 'http://localhost:3000/api';
+  private baseURL = 'https://api-dot-reg-docs-api-v1.appspot.com/api';//http://localhost:3000/api
   response: any = {};
   private serviceResponse = new BehaviorSubject(this.response);
   regdocs = this.serviceResponse.asObservable();

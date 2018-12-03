@@ -28,9 +28,10 @@ const routes: Routes = [
   { path: '',                     component: HomePageComponent },
   { path: 'login',                component: LoginComponent },
   { path: 'docs',                 component: DocIndexComponent },
-  { path: 'admin/docs',           component: DocListComponent, canActivate: [AuthGuard] },
-  { path: 'admin/docs/add',       component: DocAddComponent,  canActivate: [AuthGuard] },
-  { path: 'admin/docs/edit/:id',  component: DocEditComponent, canActivate: [AuthGuard] },
+//  { path: 'admin',                redirectTo: '/admin/docs' },
+  //{ path: 'admin/docs',           component: DocListComponent, canActivate: [AuthGuard] },
+  { path: 'docs/add',       component: DocAddComponent,  canActivate: [AuthGuard] },
+  { path: 'docs/edit/:id',  component: DocEditComponent, canActivate: [AuthGuard] },
   { path: '**',                   component: PageNotFoundComponent }
 ];
 

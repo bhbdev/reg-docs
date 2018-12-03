@@ -6,9 +6,10 @@ import { map,first } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'https://api-dot-reg-docs-api-v1.appspot.com/api';//http://localhost:3000/api
   
   constructor(private http: HttpClient) {}
+  
   
   login(username: string, password: string) {
     // const httpOptions = {
